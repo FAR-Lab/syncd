@@ -1,0 +1,30 @@
+{
+  "name": "syncd",
+  "version": "1.0.0",
+  "description": "A package for synchronizing videos. Currently only works with GoPro videos.",
+  "main": "app.js",
+  "dependencies": {
+    "eslint": "^7.26.0",
+    "geojson-validation": "^1.0.2",
+    "gpmf-extract": "^0.1.24"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npx syncd folder_path"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snlee159/syncd.git"
+  },
+  "keywords": [
+    "video",
+    "gopro",
+    "sync"
+  ],
+  "author": "Sam Lee and Ilan Mandel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/snlee159/syncd/issues"
+  },
+  "homepage": "https://github.com/snlee159/syncd#readme"
+}
