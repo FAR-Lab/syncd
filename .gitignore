@@ -109,3 +109,7 @@ sftp.json
 
 # VS Code Files
 .DS_Store
+
+# Package specific output
+syncd_output/
+deprecated/
