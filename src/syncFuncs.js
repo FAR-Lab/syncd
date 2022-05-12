@@ -1,7 +1,8 @@
+/* eslint-disable no-console */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-restricted-syntax */
 const {
-  readFile, writeFileSync,
+  readFile, writeFile,
 } = require('fs');
 const utils = require('./utils');
 const timing = require('./timings');
@@ -57,7 +58,7 @@ function makeCameraVid(dataPath, destPath, compute, allFiles, camera) {
   });
   console.log('Merging:');
   console.log(fileNames);
-  writeFileSync(txtFile, fileNames);
+  writeFile(txtFile, fileNames);
   ffmpeg.combineCamera(txtFile, `${destPath}/${camera}/concat.MP4`, compute);
 
   // Remove anything with *Buffer.MP4 or *_blank.MP4 or *_newfps.MP4
@@ -109,20 +110,20 @@ async function runSync(participant,
     const orderedVids = utils.orderGoProFiles(fileStructure[participant][camera]);
 
     // Get the timing for each MP4 file
-    timing.fileTimings(orderedVids, `${dataPath}/participant/${camera}`, `${destPath}/participant/${camera}`);
+    timing.fileTimings(orderedVids, `${dataPath}/${participant}/${camera}`, `${destPath}/${participant}/${camera}`);
   });
 
   // Get timings and fps for all videos
-  await timing.cameraTimings(cameras, `${destPath}/participant`);
+  await timing.cameraTimings(cameras, `${destPath}/${participant}`);
 
   // Merge the camera files
   await cameras.forEach((camera) => {
-    makeCameraVid(`${dataPath}/participant/${camera}`,
-      `${destPath}/participant`, camera, compute, allFiles);
+    makeCameraVid(`${dataPath}/${participant}/${camera}`,
+      `${destPath}/${participant}`, camera, compute, allFiles);
   });
 
   // Merge the cameras
-  await mergeCameras(cameras, `${destPath}/participant`, compute, allFiles);
+  await mergeCameras(cameras, `${destPath}/${participant}`, compute, allFiles);
 }
 
 module.exports = {

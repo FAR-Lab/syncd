@@ -8,9 +8,9 @@ const gpmfExtract = require('gpmf-extract'); // https://github.com/JuanIrache/gp
 const goproTelemetry = require('gopro-telemetry'); // https://github.com/JuanIrache/gopro-telemetry
 const {
   createReadStream,
-  writeFileSync,
+  writeFile,
   rmdir,
-  unlinkSync,
+  unlink,
 } = require('fs');
 const luxon = require('luxon');
 const glob = require('glob-promise');
@@ -65,7 +65,7 @@ async function processVid(vidPath, savePath) {
 
   // this heuristic isn't perfect and might want to be refined
   telemetry['1'].streams.GPS5.samples = await adjustTimestamps(telemetry['1'].streams.GPS5.samples);
-  await writeFileSync(`${savePath}/${vidPath.split('/')[vidPath.split('/').length - 1].split('.MP4')[0]}.json`, JSON.stringify(telemetry));
+  await writeFile(`${savePath}/${vidPath.split('/')[vidPath.split('/').length - 1].split('.MP4')[0]}.json`, JSON.stringify(telemetry));
 
   return [new Date(telemetry['1'].streams.GPS5.samples[0].date).getTime(), duration * 1000, frameDur];
 }
@@ -181,7 +181,7 @@ function orderGoProFiles(vids) {
 function removeFiles(pattern) {
   const files = glob(pattern);
   files.forEach((file) => {
-    unlinkSync(file);
+    unlink(file);
     console.log(`Deleted file: ${file}`);
   });
 }

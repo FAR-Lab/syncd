@@ -1,6 +1,7 @@
+/* eslint-disable no-console */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-restricted-syntax */
-const { writeFileSync, readFile } = require('fs');
+const { writeFile, readFile } = require('fs');
 const utils = require('./utils');
 
 function fileTimings(vids, dataPath, destPath) {
@@ -104,7 +105,8 @@ function fileTimings(vids, dataPath, destPath) {
   data.fps = 1 / maxfDur;
 
   // Write the json so it can be referenced later
-  writeFileSync(`${destPath}/FileTimings.json`, JSON.stringify(data));
+  console.log(data);
+  writeFile(`${destPath}/FileTimings.json`, JSON.stringify(data));
 }
 
 function cameraTimings(cameras, destPath) {
@@ -133,7 +135,7 @@ function cameraTimings(cameras, destPath) {
   }
 
   // Write the data to a json file
-  writeFileSync(`${destPath}/CameraTimings.json`, JSON.stringify(timingData));
+  writeFile(`${destPath}/CameraTimings.json`, JSON.stringify(timingData));
 }
 
 module.exports = {

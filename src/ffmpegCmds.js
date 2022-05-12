@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const ffmpeg = require('fluent-ffmpeg'); // https://www.npmjs.com/package/fluent-ffmpeg
 
 function acceleration(compute) {

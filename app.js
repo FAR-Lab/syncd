@@ -9,14 +9,14 @@ async function main(dataPath, rotations, destPath, compute, allFiles) {
   console.log(fileStructure);
   const participantList = Object.keys(fileStructure);
 
-  // Check if the destination path exists and, if not, make it
-  await fs.access(destPath, (error) => {
+  // Check if the destination paths exists and, if not, make them
+  fs.access(destPath, (error) => {
     if (error) {
       fs.mkdirSync(destPath);
     }
   });
 
-  await participantList.forEach((participant) => {
+  participantList.forEach((participant) => {
     console.log(`Running for participant ${participant}...`);
 
     // Make a directory for the participant's data
@@ -25,6 +25,16 @@ async function main(dataPath, rotations, destPath, compute, allFiles) {
       if (error) {
         fs.mkdirSync(partPath);
       }
+    });
+
+    // Make a directory for each camera
+    Object.keys(fileStructure[participant]).forEach((camera) => {
+      const camPath = `${destPath}/${participant}/${camera}`;
+      fs.access(camPath, (error) => {
+        if (error) {
+          fs.mkdirSync(camPath);
+        }
+      });
     });
 
     // run the video sync on the participant's data
