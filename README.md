@@ -25,8 +25,7 @@ To install with git and contribute/build on syncd:
 ```
 git clone https://github.com/snlee159/syncd.git
 cd [package directory]
-npm link
-npm install syncd
+sudo npm install -g
 ```
 
 or just run with `npx` instead for faster testing.
@@ -38,6 +37,8 @@ syncd can be run with the following command and command-line arguments:
 ```
 syncd <path to data> [optional arguments]
 ```
+
+Use `sudo` if destination path is in a system directory like `/mnt`. Note, must `sudo npm install syncd` in this case.
 
 Where the optional arguments available are as follows:
 * `--compute`: options are `GPU` or `CPU`, defaults to `CPU`
