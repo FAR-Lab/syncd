@@ -1,6 +1,6 @@
 {
   "name": "syncd",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A package for synchronizing videos. Currently only works with GoPro videos.",
   "bin": {
     "syncd": "app.js"
@@ -16,11 +16,11 @@
   },
   "devDependencies": {},
   "scripts": { 
-    "test": "npx syncd folder_path"
+    "test": "syncd folder_path"
   }, 
   "repository": { 
     "type": "git",
-    "url": "git+https://github.com/snlee159/syncd.git"
+    "url": "git+https://github.com/FAR-Lab/syncd.git"
   },
   "keywords": [
     "video",
@@ -30,7 +30,7 @@
   "author": "Sam Lee and Ilan Mandel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/snlee159/syncd/issues"
+    "url": "https://github.com/FAR-Lab/syncd/issues"
   },
-  "homepage": "https://github.com/snlee159/syncd#readme"
+  "homepage": "https://github.com/FAR-Lab/syncd#readme"
 }

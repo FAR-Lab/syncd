@@ -23,7 +23,7 @@ npm install syncd
 To install with git and contribute/build on syncd:
 
 ```
-git clone https://github.com/snlee159/syncd.git
+git clone https://github.com/FAR-Lab/syncd.git
 cd [package directory]
 sudo npm install -g
 ```
