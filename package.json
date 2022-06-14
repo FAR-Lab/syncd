@@ -11,15 +11,14 @@
     "gpmf-extract": "^0.1.24",
     "glob-promise": "^4.2.2",
     "luxon": "^2.4.0",
-    "gopro-telemetry": "^1.1.37",
-    "fs": "^0.0.1",
+    "gopro-telemetry": "^1.1.37", 
     "fluent-ffmpeg": "^2.1.2"
   },
   "devDependencies": {},
-  "scripts": {
+  "scripts": { 
     "test": "npx syncd folder_path"
-  },
-  "repository": {
+  }, 
+  "repository": { 
     "type": "git",
     "url": "git+https://github.com/snlee159/syncd.git"
   },
